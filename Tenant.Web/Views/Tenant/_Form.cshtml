@@ -1,0 +1,48 @@
+﻿@model Tenant.Business.Models.TenantViewModel
+
+@Html.HiddenFor(s => s.Id)
+<div class="row form-group col-md-4">
+    @Html.LabelFor(s => s.FirstName)
+    @Html.TextBoxFor(s => s.FirstName, new { @class = "form-control", @placeholder = "Enter First Name", @maxlength = @Tenant.EntityFrameworkCore.TenantPersonnel.MaxInputLength })
+    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+</div>
+<div class="form-group col-md-4">
+    @Html.LabelFor(s => s.MiddleName)
+    @Html.TextBoxFor(s => s.MiddleName, new { @class = "form-control", @placeholder = "Enter Middle Name", @maxlength = @Tenant.EntityFrameworkCore.TenantPersonnel.MaxInputLength })
+    @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+
+</div>
+<div class="form-group col-md-4">
+    @Html.LabelFor(s => s.LastName)
+    @Html.TextBoxFor(s => s.LastName, new { @class = "form-control", @placeholder = "Enter Last Name", @maxlength = @Tenant.EntityFrameworkCore.TenantPersonnel.MaxInputLength })
+    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(s => s.NickName)
+    @Html.TextBoxFor(s => s.NickName, new { @class = "form-control", @placeholder = "Enter Nick Name", @maxlength = @Tenant.EntityFrameworkCore.TenantPersonnel.MaxInputLength })
+    @Html.ValidationMessageFor(model => model.NickName, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(s => s.DOB)
+    @Html.TextBoxFor(s => s.DOB, new { @class = "form-control datepicker", @placeholder = "Enter Date of Birth" })
+    @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+
+</div>
+@Html.HiddenFor(s => s.Gender)
+<div class="form-group">
+    @Html.Label("Gender")
+    @Html.DropDownListFor(
+         s => s.GenderId,
+         Model.Gender,
+         new
+         {
+             @class = "form-control",
+         })
+</div>
+<div class="pull-right">
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    &nbsp;
+    &nbsp;
+    <a href="@Url.Action("Index","Tenant")" class="btn btn-danger">Cancel</a>
+</div>

@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Tenant.API/bin/Debug/netcoreapp3.1
+/Tenant.API/obj
+/Tenant.Business/obj
+/Tenant.EntityFrameworkCore/bin/Debug/netcoreapp3.1
+/Tenant.EntityFrameworkCore/obj
+/Tenant.Web/bin/Debug/netcoreapp3.1
+/Tenant.Web/obj
+/Tenant.Business/bin/Debug/netcoreapp3.1

@@ -1,0 +1,21 @@
+﻿@model Tenant.Business.Models.TenantViewModel
+
+<h2>
+    Edit Tenant
+</h2>
+
+@using (Html.BeginForm("Update", "Tenant", FormMethod.Post))
+{
+    @Html.Partial("_Form.cshtml", Model);
+}
+
+@section Scripts{
+    <script>
+        var date = new Date();
+        var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: "true",
+        });
+    </script>
+}

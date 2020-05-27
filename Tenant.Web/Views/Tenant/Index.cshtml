@@ -1,0 +1,37 @@
+﻿@model TenantIndexViewModel
+
+@{
+    ViewBag.Title = "Tenant List";
+    ViewBag.ActiveMenu = "TenantList"; //Matches with the menu name in TenantAppNavigationProvider to highlight the menu item
+}
+
+<h2>Tenant List</h2>
+
+<div class="row list-group-item-text" style="margin-bottom:60px">
+    <div class="pull-right">
+        <a href="@Url.Action("Create","Tenant")" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Create</a>
+    </div>
+</div>
+<div class="row">
+    <div>
+        <ul class="list-group" id="TenantList">
+            @foreach (var tenant in Model.Tenants)
+            {
+                <li class="list-group-item">
+                    <span class="pull-right label @Model.GetTaskLabel(tenant)">@(tenant.Active ? "Active":"InActive")</span>
+                    <h4 class="list-group-item-heading">@tenant.FirstName @tenant.MiddleName @tenant.LastName </h4>
+                    <div class="list-group-item-text">
+                        <strong> Gender :</strong> @tenant.GenderFk.Name
+                    </div>
+                    <div class="list-group-item-text">
+                        <strong>Date of Birth :</strong> @tenant.DOB.ToString("dd-MM-yyyy")
+                        <div class="pull-right">
+                            <a title="Edit Tenant" href="@Url.Action("Update","Tenant",new {Id=tenant.Id })"><i style="font-size:15px;margin-right:5px" class="fa fa-pencil"></i></a>
+                            <a title="Delete Tenant" href="@Url.Action("Delete","Tenant",new {Id=tenant.Id })"><i style="font-size:15px;color:red" class="fa fa-trash"></i></a>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
